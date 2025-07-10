@@ -1,0 +1,138 @@
+/* FONT */
+/* @font-face{
+    font-family: 'bebasneue';
+    src: url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&display=swap');
+} */
+
+body {
+  font-family: "Edu AU VIC WA NT Guides", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #ddd;
+}
+h1{
+    font-size: 50px;
+    margin: 25px 0;
+    text-align: center;
+    text-decoration: underline;
+    text-shadow: 2px 2px 2px rgb(248, 234, 110);
+}
+.container{
+    width: 100vh;
+    background-color: rgba(255, 255, 255, 0.712);
+    margin: auto;
+    padding-left: 50px;
+    box-shadow:  0 0 5px 5px rgba(0,00,3);
+    border-radius: 25px;
+}
+.galeri li {
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border: 3px solid #000;
+    float: left;
+    margin-right: 10px;
+    position: relative;
+}
+
+.galeri li, 
+.galeri li span, .galeri li img{
+    border-radius: 25px;
+}
+
+.galeri li span {
+    display: block;
+    width: 120px;
+    height: 120px;
+    background-color: #000000a4;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    line-height: 120px;
+    color: rgb(145, 105, 58);
+    opacity: 0;
+    transition: .3s;
+    transform: scale(0) rotate(0);
+}
+.galeri li a:hover span{
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+}
+
+.clear{
+    clear: both;
+}
+
+/* overlay */
+.overlay{
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #00000073;
+    z-index: 9999;
+    transition: .8s;
+    text-align: center;
+    padding: 200px 0;
+
+}
+
+.overlay:target{
+    width: auto;
+    height: auto;
+    bottom: 0;
+    right: 0;
+    background-color: #00000073;
+}
+
+.overlay img{
+    max-height:65vh ;
+    box-shadow: 2px 2px 10px;
+}
+.overlay:target img{
+    animation: zoomdanfade 1s;
+}
+.overlay .close{
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -20px;
+    color: white;
+    text-decoration: none;
+    background-color: #000;
+    border: 1px solid white;
+    line-height: 30px;
+    padding: 3px;
+    opacity: 0;
+}
+.overlay:target .close{
+    animation: sliddownfade .5s .5s forwards;
+}
+
+/* animasi */
+@keyframes zoomdanfade {
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+        100%{
+        transform: scale(1);
+        opacity: 0;
+    }
+
+    
+}
+
+@keyframes sliddownfade {
+    0%{
+        opacity: 0;
+        margin-top: -20px;
+    }
+    100%{
+        opacity: 1;
+        margin-top: 0;
+    }
+}
